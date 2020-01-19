@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block title %} To-Do List {% endblock %} 
+{% block content %}
+    {% if all_items %}
+    <table class="table">
+    	<thead class="thead-light">
+
+        {% for things in all_items %}
+            {% if things.completed %}
+
+            <tr class="table-secondary">
+              <td class=".striker"><a href="{% url 'edit' things.id %}"><center>{{things.item}}</center></td>
+              <td><center>{{things.completed}}</center></td>
+              <td><center><a href="{% url 'delete' things.id %}">delete</center></td>
+            </tr> 
+            {% else %}
+            <tr>
+              <td><center><a  href="{% url 'edit' things.id %}">{{things.item}}</center></td>
+              <td><center>{{things.completed}}</center></td>
+              <td><center><a href="{% url 'delete' things.id %}">delete</center></td>
+            </tr> 
+            {% endif %}
+
+
+
+        {% endfor %}
+        </thead>
+    </table>
+    {% endif %}
+
+{% endblock %}
