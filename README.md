@@ -4,4 +4,3 @@ tools used:
 python,
 django,
 venv(virtual environment),
-IDE=Sublime Text
